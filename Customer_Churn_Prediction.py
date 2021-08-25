@@ -51,3 +51,36 @@ plt.xlabel("MonthlyCharges")
 plt.ylabel("No of customers")
 plt.title("Customer Churn Prediction Visualization with MonthlyCharges",color ="blue")
 plt.legend()
+
+def print_unique_col_values(df):
+    for column in df:
+        if df[column].dtypes == 'object':
+            print(f'{column} : {df[column].unique()}')
+        
+#print_unique_col_values(newdf)
+
+#datacleaning
+newdf.replace('No internet service','No',inplace =True)
+newdf.replace('No phone service','No',inplace =True)
+newdf['gender'].replace({'Female': 1, 'Male' : 0},inplace =True)
+
+yes_no_columns = ['Partner','Dependents','PhoneService','MultipleLines','OnlineSecurity','OnlineBackup','DeviceProtection','TechSupport',
+                  'StreamingTV','StreamingMovies','PaperlessBilling','Churn']
+
+for column in yes_no_columns:
+    newdf[column].replace({'Yes': 1 , 'No':0}, inplace = True)
+    
+def print_unique_values(df):   
+    for col in newdf:
+        print(f'{col} : {df[col].unique()}')
+        
+#print_unique_values(newdf)
+
+
+newdf = pd.get_dummies(data=newdf,columns=['InternetService','Contract','PaymentMethod']) #one hot encoding & makes some cols  1,0
+
+cols_to_scale = ['MonthlyCharges','TotalCharges','tenure']
+
+scaler = MinMaxScaler()
+newdf[cols_to_scale] = scaler.fit_transform(newdf[cols_to_scale])
+#newdf.sample(3)
