@@ -1,6 +1,7 @@
 import pandas as pd
 from matplotlib import pyplot as plt
 import numpy as np
+from sklearn.preprocessing import MinMaxScaler
 %matplotlib inline
 
 df=pd.read_csv("Telco-Customer-Churn.csv")
