@@ -77,11 +77,8 @@ def print_unique_values(df):
         
 #print_unique_values(newdf)
 
-
 newdf = pd.get_dummies(data=newdf,columns=['InternetService','Contract','PaymentMethod']) #one hot encoding & makes some cols  1,0
-
 cols_to_scale = ['MonthlyCharges','TotalCharges','tenure']
-
 scaler = MinMaxScaler()
 newdf[cols_to_scale] = scaler.fit_transform(newdf[cols_to_scale])
 #newdf.sample(3)
