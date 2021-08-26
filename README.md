@@ -9,4 +9,10 @@ Here we use Telecom Customer churn prediction data set available at https://www.
 
 ![Data Visualisation with Monthly charges](barchart-MonthlyCharges.jpg)
 
+## Classification Report
 
+![Classification Report](ClassificationReport.jpg)
+
+## Confusion Matrix
+
+![Confusion Matrix](Confusionmatrix.jpg)
