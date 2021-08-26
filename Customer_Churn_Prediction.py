@@ -119,3 +119,5 @@ for prediction in yp:
     else:
         Y_pred.append(0)
 #Y_pred[:5]
+
+print(classification_report(Y_test, Y_pred))
