@@ -128,3 +128,16 @@ plt.figure(figsize = (10,7))
 sn.heatmap(cm, annot = True , fmt='d')
 plt.xlabel('Predicted')
 plt.ylabel('Actual')
+
+#Classification analysis
+#Accuracy
+round((885+221)/(885+221+114+187),2)
+
+#precision for 0 class - Customer who didn't churn(Correctly classifed sample / total prdicted sample)
+round((885)/(885+187),2)
+
+#precision for 1 class - Customers who  churn(Correctly classifed sample / total prdicted sample) 
+round(221 /(221+114) ,2)
+
+#Recalll for 1 class Customers who  churn(Correctly classifed sample / total actual sample
+round(221/(187+221) , 2)
