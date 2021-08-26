@@ -87,3 +87,21 @@ cols_to_scale = ['MonthlyCharges','TotalCharges','tenure']
 scaler = MinMaxScaler()
 newdf[cols_to_scale] = scaler.fit_transform(newdf[cols_to_scale])
 #newdf.sample(3)
+
+#train and test split
+x=newdf.drop('Churn' ,axis='columns')
+y=newdf['Churn']
+X_train, X_test, Y_train, Y_test = train_test_split(x,y,test_size=0.2, random_state=5)
+#X_train.shape
+#Y_test.shape
+
+model = keras.Sequential([
+    keras.layers.Dense(20, input_shape=(26,), activation='relu'),
+    keras.layers.Dense(1,activation='sigmoid'),
+])
+
+model.compile(optimizer='adam',
+             loss='binary_crossentropy',
+             metrics=['accuracy'])
+model.fit(X_train, Y_train, epochs = 5)
+#model.fit(X_train, Y_train, epochs = 100)
