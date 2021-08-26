@@ -105,3 +105,17 @@ model.compile(optimizer='adam',
              metrics=['accuracy'])
 model.fit(X_train, Y_train, epochs = 5)
 #model.fit(X_train, Y_train, epochs = 100)
+
+model.evaluate(X_test, Y_test)
+yp = model.predict(X_test)
+#yp[:5]
+#Y_test[:5]
+
+#make the prediction 0 or 1
+Y_pred = []
+for prediction in yp:
+    if prediction > 0.5:
+        Y_pred.append(1)
+    else:
+        Y_pred.append(0)
+#Y_pred[:5]
