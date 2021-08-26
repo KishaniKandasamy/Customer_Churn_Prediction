@@ -2,6 +2,11 @@ import pandas as pd
 from matplotlib import pyplot as plt
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+import tensorflow as tf
+from tensorflow import keras
+from sklearn.metrics import confusion_matrix , classification_report
+import seaborn as sn
 %matplotlib inline
 
 df=pd.read_csv("Telco-Customer-Churn.csv")
