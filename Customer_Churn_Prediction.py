@@ -121,3 +121,10 @@ for prediction in yp:
 #Y_pred[:5]
 
 print(classification_report(Y_test, Y_pred))
+
+#Confusion matrix
+cm=tf.math.confusion_matrix(labels=Y_test , predictions =Y_pred)
+plt.figure(figsize = (10,7))
+sn.heatmap(cm, annot = True , fmt='d')
+plt.xlabel('Predicted')
+plt.ylabel('Actual')
